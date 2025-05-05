@@ -194,17 +194,17 @@ FActorSpawnResult Result = Factory.SpawnActor(Transform, Description);
 ### 反射系统集成
 - **UCLASS宏扩展**  ：UCLASS宏用于在Unreal Engine中注册C++类到反射系统，使得这些类可以被蓝图访问和继承，以及支持序列化、垃圾回收等功能。
   - 示例：
-  ```cpp
-    UCLASS(
-      Blueprintable,                     // 允许蓝图继承
-      ClassGroup = (Custom),             // 自定义编辑器分类
-      meta = (DisplayName = "AI Controller Factory")  // 编辑器显示名称
-    )
-    class CARLA_API AAIControllerFactory : public ACarlaActorFactory {
-      GENERATED_BODY()
-      // ...
-    };
-  ```
+```cpp
+UCLASS(
+Blueprintable,                     // 允许蓝图继承
+ClassGroup = (Custom),             // 自定义编辑器分类
+meta = (DisplayName = "AI Controller Factory")  // 编辑器显示名称
+)
+class CARLA_API AAIControllerFactory : public ACarlaActorFactory {
+GENERATED_BODY()
+// ...
+};
+```
 - 参数说明：
 
 | 参数             | 作用                                                         |
@@ -216,14 +216,14 @@ FActorSpawnResult Result = Factory.SpawnActor(Transform, Description);
 
 - **属性暴露到编辑器**  
   - 示例：
-    ```cpp
-    UPROPERTY(
-      EditDefaultsOnly,                  // 仅在默认值编辑器中可修改
-      Category = "AI Controller",        // 分类标签
-      meta = (Tooltip = "Controller类型ID")  // 悬浮提示
-    )
-    FString ControllerTypeId = TEXT("default");      
-    ```
+```cpp
+UPROPERTY(
+EditDefaultsOnly,                  // 仅在默认值编辑器中可修改
+Category = "AI Controller",        // 分类标签
+meta = (Tooltip = "Controller类型ID")  // 悬浮提示
+)
+FString ControllerTypeId = TEXT("default");      
+```
 - 参数说明：
 
 | 参数               | 说明                                                    |
